@@ -9,4 +9,4 @@ class Product(db.Model):
     quantity = db.Column(db.Integer)
     createdAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-    users = db.relationship("UserProduct", back_populates="user")
+    users = db.relationship("UserProduct", back_populates="product")
