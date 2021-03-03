@@ -6,13 +6,33 @@ faker = Faker()
 
 
 photo_keys = [
-    "https://andromedaplants.s3.amazonaws.com/104707435_2049115241899471_2409481030156799029_o.jpg",
-    "https://andromedaplants.s3.amazonaws.com/107123508_2069066973237631_7085080278469942117_n.jpg",
-    "https://andromedaplants.s3.amazonaws.com/109507965_2081088382035490_4981221870352552347_o.jpg",
-    "https://andromedaplants.s3.amazonaws.com/93379445_1982618745215788_1724003828279279616_n.jpg",
-    "https://andromedaplants.s3.amazonaws.com/95606796_1997283697082626_4616065527859642368_n.jpg",
-    "https://andromedaplants.s3.amazonaws.com/95606796_1997283697082626_4616065527859642368_n.jpg",
-    "https://andromedaplants.s3.amazonaws.com/99439952_2019662218178107_6228214938733641728_o.jpg"
+    "https://andromedaplants.s3.amazonaws.com/plonts/adelae.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/117875695_2114986708645657_8571321500299727153_n.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/agnata+red.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/alpina.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/baineskloof.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/ceph.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/falconeri+palmerton.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/fulva.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/gramo.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/hamata.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/lanata.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/lotus+eater.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/madagas.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/microdent.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/nelumbifolia+x+ren+flower.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/paradoxa+TYPE.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/petiolaris.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/pictureeesflytrap.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/porcelain.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/potosiensis.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelum+roots.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelumbifolia+2.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelumbifolia.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/slackii.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/yucca+do+1713.jpg",
+    "https://andromedaplants.s3.amazonaws.com/plonts/yuccado.jpg",
+
 ]
 
 

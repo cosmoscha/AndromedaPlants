@@ -11,8 +11,8 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     seed_users()
-    seed_products(7)
-    seed_photos(7)
+    seed_products(25)
+    seed_photos(25)
     seed_tags(7)
     # Add other seed functions here
 

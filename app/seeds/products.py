@@ -26,6 +26,19 @@ descriptions = [
     "oh who loves my sweeties!!",
     "this is my favorite pet forever and ever",
     "I love this pet more than all the solar system!!!",
+    "oh, who loves you!!!!",
+    "check out my sweeties",
+    "I love this pet so darn much",
+    "this is my pet, i'm very very proud!",
+    "wouldn't trade this companion for the world!",
+    "oh, who loves you so much!!!!",
+    "esto es mi favorite pet!",
+    "I love this pet more than everything",
+    "this is my pet, i have never been more proud",
+    "wouldn't trade this awesomeness for the world!",
+    "oh who loves my sweeties!!",
+    "this is my favorite pet forever and ever",
+    "I love this pet more than all the solar system!!!",
 ]
 
 
