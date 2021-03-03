@@ -1,5 +1,4 @@
 from .db import db
-from sqlalchemy.orm import relationship
 import datetime
 class Product(db.Model):
     __tablename__ = 'products'
@@ -10,3 +9,5 @@ class Product(db.Model):
     createdAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     users = db.relationship("UserProduct", back_populates="product")
+    photos = db.relationship("Photo", back_populates="product")
+    tags = db.relationship("ProductTag", back_populates="product")
