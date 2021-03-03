@@ -9,5 +9,5 @@ class Product(db.Model):
     createdAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     users = db.relationship("UserProduct", back_populates="product")
-    photos = db.relationship("Photo", back_populates="product")
+    photos = db.relationship("Photo", back_populates="products")
     tags = db.relationship("ProductTag", back_populates="product")

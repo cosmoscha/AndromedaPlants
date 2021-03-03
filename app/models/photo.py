@@ -11,4 +11,4 @@ class Photo(db.Model):
                           default=datetime.datetime.utcnow)
     updatedAt = db.Column(db.DateTime,
                           default=datetime.datetime.utcnow)
-    product = db.relationship("Product", back_populates="photos")
+    products = db.relationship("Product", back_populates="photos")
