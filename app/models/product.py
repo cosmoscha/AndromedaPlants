@@ -4,9 +4,9 @@ import datetime
 class Product(db.Model):
     __tablename__ = 'products'
 
-id = db.Column(db.Integer, primary_key=True)
-description = db.Column(db.text, nullable=False)
-quantity = db.column(db.integer, nullable=False, default=0)
-createdAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-updatedAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-users = db.relationship(, secondary="userProducts")
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.Text, nullable=True)
+    quantity = db.Column(db.Integer)
+    createdAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    updatedAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    users = db.relationship("UserProduct", back_populates="user")
