@@ -1,7 +1,7 @@
 .menu {
   display: flex;
-  width: 90vw;
-  height: 54px;
+  width: 70vw;
+  height: 50px;
   line-height: 18px;
   align-items: center;
   justify-content: space-between;
@@ -9,11 +9,26 @@
 }
 
 .menuButtons {
-  display: flex;
-  width: 20vw;
-  height: 54px;
-  line-height: 18px;
+  padding: 0.5rem 1rem 0.5rem 0.8rem;
+  font-weight: normal;
+  text-align: center;
+  display: inline-block;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 10vw;
+  justify-content: flex-start;
+  height: 36px;
+  position: relative;
+}
+
+#dropdown_button {
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  overflow: hidden;
+  position: fixed;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
 }
