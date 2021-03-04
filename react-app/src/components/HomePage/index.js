@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link, useHistory } from "react-router-dom";
+import PlantMenu from "./PlantMenu";
+import "./home.css";
 
 const HomePage = () => {
   const [test, setTest] = useState("hidden");
@@ -13,15 +15,15 @@ const HomePage = () => {
   };
   return (
     <>
-      <div className={test === "hidden" ? "hidden" : ""}>
-        hello worlddddddddddddd
+      <div className="splash-container">
+        <div className="sidebar">
+          <PlantMenu />
+        </div>
       </div>
-      <button onClick={() => tester()}>whats up</button>
-      <div className="rounded-img-container">
-        <img
-          src="https://andromedaplants.s3.amazonaws.com/plonts/agnata+red.jpg"
-          className="test"
-        />
+      <div className="product-preview">
+        <div className="sample1">product sample</div>
+        <div className="sample2">product sample</div>
+        <div className="sample3">product sample</div>
       </div>
     </>
   );

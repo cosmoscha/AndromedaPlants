@@ -11,8 +11,7 @@
   object-fit: cover;
   border-radius: 50%;
 } */
-
-.test {
+* .test {
   border-radius: 50%;
   height: 20vh;
   width: 10vw;
