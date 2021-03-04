@@ -27,5 +27,6 @@
   display: none;
 }
 
-/* .notHidden {
-} */
+* {
+  outline: none;
+}

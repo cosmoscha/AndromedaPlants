@@ -33,12 +33,13 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   return (
     <div className="container-background">
       <div className="loginForm-container">
-        <form onSubmit={onLogin} className="tester">
+        <form onSubmit={onLogin} className="login-form">
           <div>
             {errors.map((error) => (
               <div>{error}</div>
             ))}
           </div>
+          <div className="login-title">I have backpain</div>
           <div>
             <label htmlFor="email">Email</label>
             <input
@@ -58,8 +59,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
               value={password}
               onChange={updatePassword}
             />
-            <button type="submit">Login</button>
           </div>
+          <button type="submit">Login</button>
         </form>
       </div>
     </div>
