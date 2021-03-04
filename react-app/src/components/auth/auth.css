@@ -1,0 +1,17 @@
+.tester {
+  background-color: red;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.loginForm-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container-background {
+  background-color: grey;
+  height: 85vh;
+}

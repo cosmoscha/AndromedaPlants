@@ -6,11 +6,11 @@ const PlantMenu = ({ setAuthenticated }) => {
 
   let menuButtons = (
     <div className="sidebar-buttons">
-      <div>sample text</div>
-      <div>sample text</div>
-      <div>sample text</div>
-      <div>sample text</div>
-      <div>sample text</div>
+      <div>sample link</div>
+      <div>sample link</div>
+      <div>sample link</div>
+      <div>sample link</div>
+      <div>sample link</div>
     </div>
   );
   return (
@@ -18,9 +18,9 @@ const PlantMenu = ({ setAuthenticated }) => {
       <div className="side-container">
         <button
           onClick={() => setShowMenu(showMenu === true ? false : true)}
-          id="dropdown_button"
+          className="sidebar-button-menu"
         >
-          button
+          menu
         </button>
         {showMenu && menuButtons}
       </div>

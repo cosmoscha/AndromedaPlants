@@ -1,11 +1,21 @@
 .splash-container {
   background-image: url("pictureeesflytrap.jpg");
-  height: 70vh;
+  height: 80vh;
   background-color: red;
   background-position: center;
   background-size: cover;
 }
-
+.sidebar-button-menu {
+  width: 287px;
+}
+.sidebar-buttons {
+  background-color: cornflowerblue;
+  width: 287px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 .product-preview {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -26,4 +36,8 @@
   grid-column: 3/4;
   height: 40vh;
   background-color: yellow;
+}
+
+.sidebar {
+  padding-top: 3vh;
 }
