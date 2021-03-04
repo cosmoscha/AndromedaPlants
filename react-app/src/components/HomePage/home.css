@@ -19,22 +19,32 @@
 .product-preview {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  width: 80vw;
+}
+
+.product-preview-container {
+  display: flex;
+  justify-content: center;
+  background-color: grey;
 }
 
 .sample1 {
   grid-column: 1/2;
-  height: 40vh;
+  height: 350px;
+  width: 350px;
   background-color: darkcyan;
   border: red;
 }
 .sample2 {
   grid-column: 2/3;
-  height: 40vh;
+  height: 350px;
+  width: 350px;
   background-color: blueviolet;
 }
 .sample3 {
   grid-column: 3/4;
-  height: 40vh;
+  height: 350px;
+  width: 350px;
   background-color: yellow;
 }
 

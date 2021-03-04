@@ -20,10 +20,12 @@ const HomePage = () => {
           <PlantMenu />
         </div>
       </div>
-      <div className="product-preview">
-        <div className="sample1">product sample</div>
-        <div className="sample2">product sample</div>
-        <div className="sample3">product sample</div>
+      <div className="product-preview-container">
+        <div className="product-preview">
+          <div className="sample1">product sample</div>
+          <div className="sample2">product sample</div>
+          <div className="sample3">product sample</div>
+        </div>
       </div>
     </>
   );
