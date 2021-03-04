@@ -4,6 +4,7 @@ class Product(db.Model):
     __tablename__ = 'products'
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
     description = db.Column(db.Text, nullable=True)
     quantity = db.Column(db.Integer)
     createdAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)

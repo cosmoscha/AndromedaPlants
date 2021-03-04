@@ -1,47 +1,60 @@
 from app.models import db, Photo
-from faker import Faker
-import random
-
-faker = Faker()
 
 
-photo_keys = [
-    "https://andromedaplants.s3.amazonaws.com/plonts/adelae.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/117875695_2114986708645657_8571321500299727153_n.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/agnata+red.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/alpina.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/baineskloof.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/ceph.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/falconeri+palmerton.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/fulva.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/gramo.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/hamata.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/lanata.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/lotus+eater.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/madagas.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/microdent.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/nelumbifolia+x+ren+flower.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/paradoxa+TYPE.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/petiolaris.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/pictureeesflytrap.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/porcelain.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/potosiensis.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelum+roots.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelumbifolia+2.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelumbifolia.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/slackii.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/yucca+do+1713.jpg",
-    "https://andromedaplants.s3.amazonaws.com/plonts/yuccado.jpg",
+def seed_photos():
+    adelae = Photo(productId=1,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/adelae.jpg")
+    Briggsiana = Photo(productId=2,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/117875695_2114986708645657_8571321500299727153_n.jpg")
+    agnatared = Photo(productId=3,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/agnata+red.jpg")
+    alpina = Photo(productId=4,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/alpina.jpg")
+    BainesKloof= Photo(productId=5,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/baineskloof.jpg")
+    Cephalotus = Photo(productId=6,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/ceph.jpg")
+    falconeri= Photo(productId=7,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/falconeri+palmerton.jpg")
+    fulva = Photo(productId=8,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/fulva.jpg")
+    gramo = Photo(productId=9,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/gramo.jpg")
+    hamata = Photo(productId=10,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/hamata.jpg")
+    lanata = Photo(productId=11,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/lanata.jpg")
+    LotusEater = Photo(productId=12,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/lotus+eater.jpg")
+    madagascariensis = Photo(productId=13,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/madagas.jpg")
+    Microdent= Photo(productId=14,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/microdent.jpg")
+    paradoxa_TYPE = Photo(productId=15,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/paradoxa+TYPE.jpg")
+    petiolaris = Photo(productId=16,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/petiolaris.jpg")
+    splashPage = Photo(productId=17,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/pictureeesflytrap.jpg")
+    Porcelain= Photo(productId=18,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/porcelain.jpg")
+    potosiensis= Photo(productId=19,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/potosiensis.jpg")
+    slackii= Photo(productId=20,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/slackii.jpg")
+    yuccaoDo1= Photo(productId=21,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/yucca+do+1713.jpg")
+    yuccaDo2 = Photo(productId=21,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/yuccado.jpg")
+    RenXNel1= Photo(productId=22,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/nelumbifolia+x+ren+flower.jpg")
+    RenXNel2= Photo(productId=22,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelum+roots.jpg")
+    RenXNel3= Photo(productId=22,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelumbifolia+2.jpg")
+    RenXNel4 = Photo(productId=22,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelumbifolia.jpg")
 
-]
-
-
-def seed_photos(n):
-    for i in range(n):
-        entry = Photo(
-            productId= i+1, photoKey=photo_keys[i]
-        )
-        db.session.add(entry)
+    db.session.add(adelae)
+    db.session.add(Briggsiana)
+    db.session.add(agnatared)
+    db.session.add(alpina)
+    db.session.add(BainesKloof)
+    db.session.add(Cephalotus)
+    db.session.add(falconeri)
+    db.session.add(fulva)
+    db.session.add(gramo)
+    db.session.add(hamata)
+    db.session.add(lanata)
+    db.session.add(LotusEater)
+    db.session.add(madagascariensis)
+    db.session.add(Microdent)
+    db.session.add(paradoxa_TYPE)
+    db.session.add(petiolaris)
+    db.session.add(splashPage)
+    db.session.add(Porcelain)
+    db.session.add(potosiensis)
+    db.session.add(slackii)
+    db.session.add(yuccaoDo1)
+    db.session.add(yuccaDo2)
+    db.session.add(RenXNel1)
+    db.session.add(RenXNel2)
+    db.session.add(RenXNel3)
+    db.session.add(RenXNel4)
     db.session.commit()
 
 

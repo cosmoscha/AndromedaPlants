@@ -1,8 +1,7 @@
 from app.models import db, Tag
-from faker import Faker
-import random
 
-def seed_tags(n):
+
+def seed_tags():
     Nepenthes = Tag(name='Nepenthes')
     Cephalotus = Tag(name='Cephalotus')
     Dionaea = Tag(name='Venus Flytrap')
