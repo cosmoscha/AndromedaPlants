@@ -9,5 +9,23 @@ product_routes = Blueprint('products', __name__)
 @product_routes.route('/')
 def getAll():
     products = Product.query.all()
-    photos = Photo.query.query.all()
-    return {"photos": [photo.to_dict() for photo in photos]}
+    response = {}
+    products_data = []
+    for product in products:
+        photo_paths = []
+        for photo in product.photos:
+            photo_paths.append(photo.photoKey)
+        product_datum = {
+            "name" : product.name,
+            "photos" : photo_paths
+        }
+        products_data.append(product_datum)
+    response["products"] = products_data
+    return response
+
+    # def to_dict(self,photos):
+
+
+
+    # photos = Photo.query.all()
+    # return {"photos": [photo.to_dict() for photo in photos]}

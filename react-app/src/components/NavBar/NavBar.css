@@ -1,0 +1,19 @@
+.menu {
+  display: flex;
+  width: 90vw;
+  height: 54px;
+  line-height: 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10vw;
+}
+
+.menuButtons {
+  display: flex;
+  width: 20vw;
+  height: 54px;
+  line-height: 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10vw;
+}
