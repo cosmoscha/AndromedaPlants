@@ -23,9 +23,5 @@ def getAll():
     response["products"] = products_data
     return response
 
-    # def to_dict(self,photos):
-
-
-
-    # photos = Photo.query.all()
-    # return {"photos": [photo.to_dict() for photo in photos]}
+    photos = Photo.query.all()
+    return {"photos": [photo.to_dict() for photo in photos]}

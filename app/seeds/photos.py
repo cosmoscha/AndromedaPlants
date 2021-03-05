@@ -22,7 +22,7 @@ def seed_photos():
     Porcelain= Photo(productId=18,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/porcelain.jpg")
     potosiensis= Photo(productId=19,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/potosiensis.jpg")
     slackii= Photo(productId=20,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/slackii.jpg")
-    yuccaoDo1= Photo(productId=21,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/yucca+do+1713.jpg")
+    yuccaoDo1= Photo(productId=21,photoKey="https://andromedaplants6.s3.amazonaws.com/plonts/yucca+do+1713.jpg")
     yuccaDo2 = Photo(productId=21,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/yuccado.jpg")
     RenXNel1= Photo(productId=22,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/nelumbifolia+x+ren+flower.jpg")
     RenXNel2= Photo(productId=22,photoKey="https://andromedaplants.s3.amazonaws.com/plonts/reniformis+x+nelum+roots.jpg")

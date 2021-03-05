@@ -23,6 +23,6 @@ def seed_tags():
 
 
 def undo_tags():
-    db.session.execute('TRUNCATE posts CASCADE;')
+    db.session.execute('TRUNCATE tags CASCADE;')
     db.session.execute("ALTER SEQUENCE tags_id_seq RESTART WITH 1")
     db.session.commit()
