@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import "./NavBar.css";
 import ProfileButton from "./ProfileButton";
+
 const NavBar = ({ setAuthenticated }) => {
   // const history = useHistory();
   // const dispatch = useDispatch();
