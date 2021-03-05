@@ -9,3 +9,10 @@ class Tag(db.Model):
     createdAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     products = db.relationship("ProductTag", back_populates="tag")
+
+
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "products": [product.to_dict_product() for product in self.products]
+        }

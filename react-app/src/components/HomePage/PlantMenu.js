@@ -6,7 +6,7 @@ const PlantMenu = ({ setAuthenticated }) => {
 
   let menuButtons = (
     <div className="sidebar-buttons">
-      <div>sample link</div>
+      <NavLink to="/products">all plants</NavLink>
       <div>sample link</div>
       <div>sample link</div>
       <div>sample link</div>

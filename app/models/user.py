@@ -9,6 +9,7 @@ class User(db.Model, UserMixin):
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
   products = db.relationship("UserProduct", back_populates="user")
+  addresses = db.relationship("Address", back_populates="user")
 
   @property
   def password(self):
@@ -28,5 +29,6 @@ class User(db.Model, UserMixin):
     return {
       "id": self.id,
       "username": self.username,
-      "email": self.email
+      "email": self.email,
+      "products":[user_product.to_dict_product() for user_product in self.products]
     }

@@ -1,5 +1,6 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
+from .addresses import seed_addresses, undo_addresses
 from .photos import seed_photos, undo_photos
 from .tags import seed_tags, undo_tags
 from .products import seed_products, undo_products
@@ -13,6 +14,7 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     seed_users()
+    seed_addresses()
     seed_products()
     seed_photos()
     seed_tags()
@@ -24,6 +26,7 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
+    undo_addresses()
     undo_products()
     undo_photos()
     undo_tags()

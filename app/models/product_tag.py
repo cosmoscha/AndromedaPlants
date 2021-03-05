@@ -11,3 +11,8 @@ class ProductTag(db.Model):
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     tag = db.relationship("Tag", back_populates="products")
     product = db.relationship("Product", back_populates="tags")
+
+    def to_dict_product(self):
+        return {
+            "products": self.product.to_dict()
+        }

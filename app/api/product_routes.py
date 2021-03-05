@@ -23,5 +23,7 @@ def getAll():
     response["products"] = products_data
     return response
 
-    photos = Photo.query.all()
-    return {"photos": [photo.to_dict() for photo in photos]}
+@product_routes.route('/<id>')
+def getOne(id):
+    products = Product.query.filter_by(id=id).first()
+    return products.to_dict()

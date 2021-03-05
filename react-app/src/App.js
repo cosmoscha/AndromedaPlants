@@ -8,16 +8,21 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
+import IndividualProduct from "./components/IndividualProduct";
+import { useDispatch } from "react-redux";
+import { addUser } from "./store/session";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
       const user = await authenticate();
       if (!user.errors) {
         setAuthenticated(true);
+        dispatch(addUser(user));
       }
       setLoaded(true);
     })();
@@ -31,9 +36,6 @@ function App() {
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
       <Switch>
-        <Route path="/" exact={true}>
-          <HomePage />
-        </Route>
         <Route path="/login" exact={true}>
           <LoginForm
             authenticated={authenticated}
@@ -61,11 +63,11 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <h1>My Home Page</h1>
+          <HomePage />
         </ProtectedRoute>
-        <ProtectedRoute path="products/" exact={true}>
-          <div>herro</div>
-        </ProtectedRoute>
+        <Route path="/products/:id" exact={true}>
+          <IndividualProduct />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

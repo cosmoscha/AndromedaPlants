@@ -12,3 +12,12 @@ class Photo(db.Model):
     updatedAt = db.Column(db.DateTime,
                           default=datetime.datetime.utcnow)
     product = db.relationship("Product", back_populates="photos")
+
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "productId": self.productId,
+            "photoKey": self.photoKey
+        }

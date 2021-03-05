@@ -12,3 +12,13 @@ class Product(db.Model):
     users = db.relationship("UserProduct", back_populates="product")
     photos = db.relationship("Photo", back_populates="product")
     tags = db.relationship("ProductTag", back_populates="product")
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name":self.name,
+            "description": self.description,
+            "quantity": self.quantity,
+            "photos": [photo.to_dict() for photo in self.photos]
+        }

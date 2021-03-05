@@ -13,3 +13,10 @@ class UserProduct(db.Model):
     updatedAt = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     user = db.relationship("User", back_populates="products")
     product = db.relationship("Product", back_populates="users")
+
+    def to_dict_product(self):
+        return {
+            "reviews":self.reviews,
+            "ratings":self.ratings,
+            "products":self.product.to_dict()
+        }
