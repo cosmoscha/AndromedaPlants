@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import "./NavBar.css";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
 
 const ProfileButton = ({ setAuthenticated }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -35,8 +36,9 @@ const ProfileButton = ({ setAuthenticated }) => {
           onClick={() => setShowMenu(showMenu === true ? false : true)}
           id="dropdown_button"
         >
-          button
+          <AccountBoxIcon fontSize="large" />
         </button>
+
         {showMenu && profileButtons}
       </div>
     </>

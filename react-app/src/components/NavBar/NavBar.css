@@ -1,14 +1,15 @@
 .menu {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 200px;
-  width: auto;
+  width: 100vw;
   line-height: 18px;
   align-items: center;
   justify-content: space-between;
   background-color: rgb(158, 64, 52);
   color: rgb(216, 207, 207);
   padding: 0px 0px 0px 0px;
+  position: fixed;
 }
 
 .menuButtons {
@@ -29,36 +30,39 @@
 
 #dropdown_button {
   width: 50px;
+  border-radius: 40%;
+  border: black;
+  background-color: rgb(158, 64, 52);
 }
 
 .button-container {
-  top: 10vh;
+  top: 9vh;
   width: 5vw;
   height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
+  border-radius: 50%;
 }
 .buttonWrapper {
   height: 15vh;
 }
 
 .nav-group {
-  grid-column: 5/7;
+  grid-column: 6/7;
   justify-content: space-between;
-  width: 20vw;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .searchbar {
-  width: 15vw;
+  width: 10vw;
 }
 
 .search-container {
-  grid-column: 4/5;
+  grid-column: 5/6;
 }
 
 .home-icon {
@@ -68,7 +72,9 @@
 }
 .icon-container {
   justify-content: space-between;
+  grid-column: 2/4;
   align-items: center;
+  padding-left: 15%;
 }
 
 .banner {

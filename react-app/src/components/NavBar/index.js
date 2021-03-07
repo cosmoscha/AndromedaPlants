@@ -31,10 +31,6 @@ const NavBar = ({ setAuthenticated }) => {
           </form>
         </div>
         <div className="nav-group">
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
-          <div>hello</div>
           <div className="buttonWrapper">
             <ProfileButton setAuthenticated={setAuthenticated} />
           </div>

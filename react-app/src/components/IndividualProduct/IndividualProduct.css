@@ -1,0 +1,12 @@
+.productImages {
+  width: 400px;
+  height: 400px;
+  border-radius: 40%;
+}
+
+.imageContainer {
+  padding-top: 30vh;
+  background-color: burlywood;
+  display: grid;
+  grid-template-areas: ;
+}
