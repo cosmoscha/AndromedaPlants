@@ -9,7 +9,6 @@ const setReviewsRatings = (payload) => {
 export const getReviewsRatings = (id) => async (dispatch) => {
   let ReviewsRatings = await fetch(`/api/userProducts/${id}`);
   ReviewsRatings = await ReviewsRatings.json();
-  console.log("something", ReviewsRatings);
   dispatch(setReviewsRatings(ReviewsRatings));
   return ReviewsRatings;
 };

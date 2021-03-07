@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct } from "../../store/products";
 import { useParams } from "react-router-dom";
 import "./IndividualProduct.css";
-import { getReviewsRatings } from "../../store/userProducts";
+import userProductsReducer, {
+  getReviewsRatings,
+} from "../../store/userProducts";
 
 const IndividualProduct = () => {
   const dispatch = useDispatch();
   const product = useParams();
   const productInfo = useSelector((state) => state.products);
-  const reviewRatings = useSelector((state) => state.userProducts);
-  console.log("wwwwwwwwwwwwwwwwwwwwwwwwwww", reviewRatings);
+  const userProducts = useSelector((state) => state.userProducts);
   const photos = productInfo.photos;
   const productId = parseInt(product.id);
   const [imagePosition, setImagePosition] = useState("");
@@ -21,54 +22,55 @@ const IndividualProduct = () => {
   }, [dispatch]);
   const reviewsArr = [];
   const photosArr = [];
-  const reviewsArrMapper = (reviewsArr) => {
-    if (reviewRatings) {
-      if (reviewRatings.length > 1) {
-        reviewRatings.map((entry) => {
-          reviewsArr.push(entry);
+  const reviewsArrMapper = (arr) => {
+    if (userProducts) {
+      if (userProducts.length > 1) {
+        userProducts.map((entry) => {
+          arr.push(entry);
         });
       } else {
-        reviewsArr.push(photos[0].photoKey);
+        arr.push(userProducts[0]);
       }
     }
-    return reviewsArr.map((photo) => {
-      return (
-        <div>
-          <img src={photo} className="productImages" key={photo.id} />
-        </div>
-      );
-    });
+    return arr;
   };
-
-  const photoArrMapper = (photosArr) => {
+  console.log(
+    "REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+    reviewsArrMapper(reviewsArr)
+  );
+  const photoArrMapper = (arr) => {
     if (photos) {
       if (photos.length > 1) {
         photos.map((product) => {
-          photosArr.push(product.photoKey);
+          arr.push(product.photoKey);
         });
       } else {
-        photosArr.push(photos[0].photoKey);
+        arr.push(photos[0].photoKey);
       }
     }
-    return photosArr.map((photo) => {
+    return arr.map((photo) => {
       return (
-        <div>
-          <img src={photo} className="productImages" key={photo.id} />
-        </div>
+        <>
+          <div>
+            <img src={photo} className="productImages" key={photo.id} />
+          </div>
+        </>
       );
     });
   };
 
   return (
     <>
-      <div>
-        <div className="imageContainer">
-          <div>{productInfo.name}</div>
-          <div className="image-grid">{photoArrMapper(photosArr)}</div>
-          <div>{productInfo.description}</div>
-          <div>{}</div>
+      {userProducts && productInfo && (
+        <div>
+          <div className="imageContainer">
+            <div>{productInfo.name}</div>
+            <div className="image-grid">{photoArrMapper(photosArr)}</div>
+            <div>{productInfo.description}</div>
+            {/* <div>{reviewsArrMapper(reviewsArr)}</div> */}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

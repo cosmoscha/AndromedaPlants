@@ -8,7 +8,6 @@ userProduct_routes =Blueprint('userProducts', __name__)
 @userProduct_routes.route('/<int:id>')
 def getAll(id):
     userProduct = UserProduct.query.filter_by(products_id=id).all()
-    print("...........rrrr.......",userProduct)
     return jsonify ([userproduct.to_dict_user() for userproduct in userProduct])
 
 # @userProduct_routes.route('/<int:id>', methods=["POST"])
