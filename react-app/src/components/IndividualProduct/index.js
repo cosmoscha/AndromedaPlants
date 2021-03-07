@@ -27,17 +27,23 @@ const IndividualProduct = () => {
         photosArr.push(photos[0].photoKey);
       }
     }
+    photosArr = photosArr.map((photo) => {
+      console.log("each photo in the photosArrmap", photo);
+      return (
+        <div>
+          <img src={photo} className="productImages" />
+        </div>
+      );
+    });
     return photosArr;
   };
-
-  console.log("photoArr function", photoArrMapper(photosArr));
 
   return (
     <>
       <div className="imageContainer">
         photos and description of product
         <div>
-          {/* <img src={getPhotos()} className="productImages" /> */}
+          {photoArrMapper(photosArr)}
           photo
         </div>
         <div></div>
