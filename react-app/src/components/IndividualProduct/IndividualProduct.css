@@ -10,3 +10,10 @@
   display: grid;
   grid-template-areas: ;
 }
+.image-grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 105px 105px;
+  grid-template-rows: 50% 50%;
+}

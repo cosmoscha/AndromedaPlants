@@ -3,16 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct } from "../../store/products";
 import { useParams } from "react-router-dom";
 import "./IndividualProduct.css";
+import { getReviewsRatings } from "../../store/userProducts";
 
 const IndividualProduct = () => {
   const dispatch = useDispatch();
   const product = useParams();
   const productInfo = useSelector((state) => state.products);
-  const productId = parseInt(product.id);
   const photos = productInfo.photos;
+  const productId = parseInt(product.id);
+  const [imagePosition, setImagePosition] = useState("");
 
   useEffect(() => {
     dispatch(getOneProduct(productId));
+    dispatch(getReviewsRatings(productId));
   }, [dispatch]);
 
   const photosArr = [];
@@ -23,31 +26,26 @@ const IndividualProduct = () => {
           photosArr.push(product.photoKey);
         });
       } else {
-        console.log("photo push for one", photos[0].photoKey);
         photosArr.push(photos[0].photoKey);
       }
     }
-    photosArr = photosArr.map((photo) => {
-      console.log("each photo in the photosArrmap", photo);
+    return photosArr.map((photo) => {
       return (
         <div>
-          <img src={photo} className="productImages" />
+          <img src={photo} className="productImages" key={photo.id} />
         </div>
       );
     });
-    return photosArr;
   };
 
   return (
     <>
-      <div className="imageContainer">
-        photos and description of product
-        <div>
-          {photoArrMapper(photosArr)}
-          photo
+      <div>
+        <div className="imageContainer">
+          <div>{productInfo.name}</div>
+          <div className="image-grid">{photoArrMapper(photosArr)}</div>
+          <div>{productInfo.description}</div>
         </div>
-        <div></div>
-        <div>cool map of climate and stuff</div>
       </div>
     </>
   );

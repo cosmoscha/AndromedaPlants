@@ -20,3 +20,8 @@ class UserProduct(db.Model):
             "ratings":self.ratings,
             "products":self.product.to_dict()
         }
+    def to_dict(self):
+        return {
+            "reviews":self.reviews,
+            "ratings":self.ratings
+        }
