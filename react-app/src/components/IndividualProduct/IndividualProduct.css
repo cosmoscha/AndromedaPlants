@@ -17,3 +17,11 @@
   grid-template-columns: 105px 105px;
   grid-template-rows: 50% 50%;
 }
+
+.reviews-grid {
+  background-color: red;
+  display: grid;
+  grid-template-columns: 105px 105px;
+  grid-template-rows: 50% 50%;
+}
+/* @import "react-alice-carousel/lib/alice-carousel.css"; */

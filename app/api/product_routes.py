@@ -24,5 +24,4 @@ def getAll():
 @product_routes.route('/<int:id>')
 def getOne(id):
     products = Product.query.filter_by(id=id).first()
-    print("....................",products.to_dict())
     return products.to_dict()

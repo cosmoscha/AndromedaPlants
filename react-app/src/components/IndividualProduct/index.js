@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct } from "../../store/products";
 import { useParams } from "react-router-dom";
 import "./IndividualProduct.css";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import userProductsReducer, {
   getReviewsRatings,
 } from "../../store/userProducts";
@@ -41,21 +43,27 @@ const IndividualProduct = () => {
       });
     }
   };
+  const handleDragStart = (e) => e.preventDefault();
   const photoArrMapper = (arr) => {
     if (photos) {
       photos.map((product) => {
         arr.push(product.photoKey);
       });
     }
-    return arr.map((photo) => {
+    arr = arr.map((photo) => {
       return (
         <>
-          <div key={arr.id}>
-            <img src={photo} className="productImages" key={photo.id} />
-          </div>
+          <img
+            src={photo}
+            className="productImages"
+            key={photo.id}
+            onDragStart={handleDragStart}
+          />
         </>
       );
     });
+    console.log();
+    return <AliceCarousel mouseTracking items={arr} />;
   };
 
   return (
@@ -65,8 +73,9 @@ const IndividualProduct = () => {
           <div className="imageContainer">
             <div>{productInfo.name}</div>
             <div className="image-grid">{photoArrMapper(photosArr)}</div>
+            <div className="image-grid"></div>
             <div>{productInfo.description}</div>
-            <div>{reviewsArrMapper(reviewsArr)}</div>
+            <div className="reviews-grid">{reviewsArrMapper(reviewsArr)}</div>
           </div>
         </div>
       )}
