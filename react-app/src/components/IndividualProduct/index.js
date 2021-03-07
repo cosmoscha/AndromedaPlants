@@ -9,16 +9,37 @@ const IndividualProduct = () => {
   const dispatch = useDispatch();
   const product = useParams();
   const productInfo = useSelector((state) => state.products);
+  const reviewRatings = useSelector((state) => state.userProducts);
+  console.log("wwwwwwwwwwwwwwwwwwwwwwwwwww", reviewRatings);
   const photos = productInfo.photos;
   const productId = parseInt(product.id);
   const [imagePosition, setImagePosition] = useState("");
 
   useEffect(() => {
-    dispatch(getOneProduct(productId));
     dispatch(getReviewsRatings(productId));
+    dispatch(getOneProduct(productId));
   }, [dispatch]);
-
+  const reviewsArr = [];
   const photosArr = [];
+  const reviewsArrMapper = (reviewsArr) => {
+    if (reviewRatings) {
+      if (reviewRatings.length > 1) {
+        reviewRatings.map((entry) => {
+          reviewsArr.push(entry);
+        });
+      } else {
+        reviewsArr.push(photos[0].photoKey);
+      }
+    }
+    return reviewsArr.map((photo) => {
+      return (
+        <div>
+          <img src={photo} className="productImages" key={photo.id} />
+        </div>
+      );
+    });
+  };
+
   const photoArrMapper = (photosArr) => {
     if (photos) {
       if (photos.length > 1) {
@@ -45,6 +66,7 @@ const IndividualProduct = () => {
           <div>{productInfo.name}</div>
           <div className="image-grid">{photoArrMapper(photosArr)}</div>
           <div>{productInfo.description}</div>
+          <div>{}</div>
         </div>
       </div>
     </>
