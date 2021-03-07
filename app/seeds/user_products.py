@@ -7,12 +7,16 @@ def seed_userProducts():
     demo3 = UserProduct(id = 3,users_id=1, products_id=3, reviews='its alright', ratings = 3)
     demo4 = UserProduct(id = 4,users_id=1, products_id=4, reviews='excellent', ratings = 4)
     demo5 = UserProduct(id = 5,users_id=1, products_id=5, reviews='the best', ratings = 5)
+    demo6 = UserProduct(id = 6,users_id=2, products_id=5, reviews='the best', ratings = 5)
+    demo7 = UserProduct(id = 7,users_id=3, products_id=5, reviews='the best', ratings = 5)
 
     db.session.add(demo1)
     db.session.add(demo2)
     db.session.add(demo3)
     db.session.add(demo4)
     db.session.add(demo5)
+    db.session.add(demo6)
+    db.session.add(demo7)
     db.session.commit()
 
 def undo_userProducts():
