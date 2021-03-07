@@ -21,37 +21,36 @@ const IndividualProduct = () => {
     dispatch(getOneProduct(productId));
   }, [dispatch]);
   const reviewsArr = [];
+  const ratingsArr = [];
   const photosArr = [];
   const reviewsArrMapper = (arr) => {
     if (userProducts) {
-      if (userProducts.length > 1) {
-        userProducts.map((entry) => {
-          arr.push(entry);
-        });
-      } else {
-        arr.push(userProducts[0]);
-      }
+      userProducts.map((entry) => {
+        arr.push(entry);
+      });
+      return arr.map((entry) => {
+        return (
+          <>
+            <div key={entry.id}>
+              <div>{entry.reviews}</div>
+              <div>{entry.ratings}</div>
+              <div>{entry.user.username}</div>
+            </div>
+          </>
+        );
+      });
     }
-    return arr;
   };
-  console.log(
-    "REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
-    reviewsArrMapper(reviewsArr)
-  );
   const photoArrMapper = (arr) => {
     if (photos) {
-      if (photos.length > 1) {
-        photos.map((product) => {
-          arr.push(product.photoKey);
-        });
-      } else {
-        arr.push(photos[0].photoKey);
-      }
+      photos.map((product) => {
+        arr.push(product.photoKey);
+      });
     }
     return arr.map((photo) => {
       return (
         <>
-          <div>
+          <div key={arr.id}>
             <img src={photo} className="productImages" key={photo.id} />
           </div>
         </>
@@ -67,7 +66,7 @@ const IndividualProduct = () => {
             <div>{productInfo.name}</div>
             <div className="image-grid">{photoArrMapper(photosArr)}</div>
             <div>{productInfo.description}</div>
-            {/* <div>{reviewsArrMapper(reviewsArr)}</div> */}
+            <div>{reviewsArrMapper(reviewsArr)}</div>
           </div>
         </div>
       )}
