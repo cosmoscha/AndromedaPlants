@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getOneProduct } from "../../store/products";
+import { getOneProduct, makeReview } from "../../store/products";
 import { useParams } from "react-router-dom";
 import "./IndividualProduct.css";
 import AliceCarousel from "react-alice-carousel";
@@ -16,13 +16,15 @@ const IndividualProduct = () => {
   const userProducts = useSelector((state) => state.userProducts);
   const photos = productInfo.photos;
   const productId = parseInt(product.id);
+  const [review, setReview] = useState("");
+  const [rating, setRating] = useState("");
 
   useEffect(() => {
     dispatch(getReviewsRatings(productId));
     dispatch(getOneProduct(productId));
   }, [dispatch]);
+
   const reviewsArr = [];
-  const ratingsArr = [];
   const photosArr = [];
   const reviewsArrMapper = (arr) => {
     if (userProducts) {
@@ -65,6 +67,23 @@ const IndividualProduct = () => {
     return <AliceCarousel mouseTracking items={arr} />;
   };
 
+  // const updateReview = (e) => {
+  //   setReview(e.target.value);
+  // };
+  // const updateRating = (e) => {
+  //   setRating(e.target.value);
+  // };
+
+  const submitReview = (e) => {
+    e.preventDefault();
+    console.log("sent dispatch");
+    const formValues = { id: productId, review: review, rating: rating };
+    console.log(formValues);
+    dispatch(makeReview(formValues));
+  };
+
+  const ratings = [1, 2, 3, 4, 5];
+
   return (
     <>
       {userProducts && productInfo && (
@@ -79,6 +98,23 @@ const IndividualProduct = () => {
               <button>idk yet, shopping cart probably</button>
             </div>
           </div>
+          <form onSubmit={submitReview}>
+            <input
+              onChange={(e) => setReview(e.target.value)}
+              value={review}
+              placeholder="add your review"
+            ></input>
+            <select onChange={(e) => setRating(e.target.value)} value={rating}>
+              {ratings.map((rating) => (
+                <option value={rating} key={rating}>
+                  {rating}
+                </option>
+              ))}
+            </select>
+            <button id={review.id} type="submit">
+              submit review
+            </button>
+          </form>
         </div>
       )}
     </>

@@ -13,6 +13,23 @@ export const getOneProduct = (id) => async (dispatch) => {
   dispatch(setOneProduct(product));
   return product;
 };
+export const makeReview = ({ id, review, rating }) => async (dispatch) => {
+  console.log("awewewe33434", id, review, rating);
+  let sentReview = await fetch(`/api/products/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      reviews: review,
+      ratings: rating,
+    }),
+  });
+  const parsedReview = await sentReview.json();
+  console.log("parsedReview", parsedReview);
+  dispatch(setOneProduct(parsedReview));
+  return parsedReview;
+};
 
 const initialState = [];
 
