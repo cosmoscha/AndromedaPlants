@@ -75,6 +75,9 @@ const IndividualProduct = () => {
             <div className="image-grid"></div>
             <div>{productInfo.description}</div>
             <div className="reviews-grid">{reviewsArrMapper(reviewsArr)}</div>
+            <div>
+              <button>idk yet, shopping cart probably</button>
+            </div>
           </div>
         </div>
       )}
