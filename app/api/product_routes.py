@@ -26,21 +26,21 @@ def getOne(id):
     products = Product.query.filter_by(id=id).first()
     return products.to_dict()
 
-@product_routes.route('/<int:id>', methods=['POST'])
-def makeReview(id):
-    # form = ReviewForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        reviewData = request.form.get('reviews')
-        ratingData = request.form.get('ratings')
-        review = UserProduct(
-            users_Id=current_user.id,
-            products_id=id,
-            reviews=reviewData,
-            ratings=ratingData
-        )
-        db.session.add(review)
-        db.session.commit()
+# @product_routes.route('/<int:id>', methods=['POST'])
+# def makeReview(id):
+#     # form = ReviewForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if form.validate_on_submit():
+#         reviewData = request.form.get('reviews')
+#         ratingData = request.form.get('ratings')
+#         review = UserProduct(
+#             users_Id=current_user.id,
+#             products_id=id,
+#             reviews=reviewData,
+#             ratings=ratingData
+#         )
+#         db.session.add(review)
+#         db.session.commit()
 
-        return to_dict(review)
-    return "Bad Data"
+#         return to_dict(review)
+#     return "Bad Data"
