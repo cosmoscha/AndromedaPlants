@@ -13,6 +13,4 @@ class ProductTag(db.Model):
     product = db.relationship("Product", back_populates="tags")
 
     def to_dict_product(self):
-        return {
-            "products": self.product.to_dict()
-        }
+        return self.product.tag_only()

@@ -11,6 +11,7 @@ import { authenticate } from "./services/auth";
 import IndividualProduct from "./components/IndividualProduct";
 import { useDispatch } from "react-redux";
 import { addUser } from "./store/session";
+import ProductPage from "./components/ProductPage";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -67,6 +68,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/products/:id" exact={true}>
           <IndividualProduct />
+        </Route>
+        <Route path="/tags/:id" exact={true}>
+          <ProductPage />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -9,7 +9,8 @@ def allTags():
     return {"tags": [tag.to_dict() for tag in tags]}
 
 
-@tag_routes.route('/<id>')
+@tag_routes.route('/<int:id>')
 def oneTag(id):
-    tag =Tag.query.get(id)
+    tag =Tag.query.filter_by(id=id).first()
+    print("TAG ddddddddddddddddddddddOBJECT",tag.to_dict())
     return tag.to_dict()

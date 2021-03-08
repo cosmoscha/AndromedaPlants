@@ -16,7 +16,6 @@ const IndividualProduct = () => {
   const userProducts = useSelector((state) => state.userProducts);
   const photos = productInfo.photos;
   const productId = parseInt(product.id);
-  const [imagePosition, setImagePosition] = useState("");
 
   useEffect(() => {
     dispatch(getReviewsRatings(productId));

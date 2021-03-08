@@ -14,6 +14,7 @@ class Product(db.Model):
     tags = db.relationship("ProductTag", back_populates="product")
 
 
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -21,4 +22,12 @@ class Product(db.Model):
             "description": self.description,
             "quantity": self.quantity,
             "photos": [photo.to_dict() for photo in self.photos]
+        }
+    def tag_only(self):
+        print("self.photos",self.photos)
+        return {
+           "name":self.name,
+           "quantity": self.quantity,
+        #    "photos": {"photo": photo.photoKey for photo in self.photos}
+           "photos": [photo.to_dict() for photo in self.photos]
         }
