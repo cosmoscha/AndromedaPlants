@@ -69,7 +69,7 @@ const IndividualProduct = () => {
   return (
     <>
       {userProducts && productInfo && (
-        <div>
+        <div className="page-container">
           <div className="imageContainer">
             <div>{productInfo.name}</div>
             <div className="image-grid">{photoArrMapper(photosArr)}</div>
