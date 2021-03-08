@@ -6,11 +6,13 @@ const PlantMenu = ({ setAuthenticated }) => {
 
   let menuButtons = (
     <div className="sidebar-buttons">
-      <NavLink to="/products">all plants</NavLink>
-      <div>sample link</div>
-      <div>sample link</div>
-      <div>sample link</div>
-      <div>sample link</div>
+      <NavLink to="/tags/1">Nepenthes</NavLink>
+      <NavLink to="/tags/2">Cephalotus</NavLink>
+      <NavLink to="/tags/3">Venus Flytraps</NavLink>
+      <NavLink to="/tags/4">Butterworts</NavLink>
+      <NavLink to="/tags/5">Sundews</NavLink>
+      <NavLink to="/tags/6">Sarracenias</NavLink>
+      <NavLink to="/tags/7">Bladderworts</NavLink>
     </div>
   );
   return (

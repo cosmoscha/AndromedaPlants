@@ -17,13 +17,16 @@
   justify-content: center;
   min-height: 100vh;
   min-width: 100%;
-  z-index: -1;
 }
 
 .product-container {
+  padding: 20px 20px;
+  border: solid;
+  border-color: chocolate;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 20%;
 }

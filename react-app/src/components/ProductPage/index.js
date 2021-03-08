@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { NavLink } from "react-router-dom";
 import { getProductTag } from "../../store/tags";
 import "./ProductPage.css";
 
@@ -25,6 +26,7 @@ const ProductPage = () => {
                 <img src={secondArr.photoKey} className="productImages2" />
                 <div>{product.name}</div>
                 <div>quantity: {product.quantity}</div>
+                <NavLink to={`/products/${product.id}`}> buy now </NavLink>
               </div>
             </>
           );
@@ -40,6 +42,9 @@ const ProductPage = () => {
     <>
       {products && (
         <div className="image-grid-container">
+          <div>
+            <NavLink to="/">back to home</NavLink>
+          </div>
           <div className="image-grid">{productMapper(products)}</div>
         </div>
       )}
