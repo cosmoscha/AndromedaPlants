@@ -17,7 +17,7 @@ const IndividualProduct = () => {
   const photos = productInfo.photos;
   const productId = parseInt(product.id);
   const [review, setReview] = useState("");
-  const [rating, setRating] = useState("");
+  const [rating, setRating] = useState(1);
 
   useEffect(() => {
     dispatch(getReviewsRatings(productId));
