@@ -44,6 +44,9 @@ const ProfileButton = ({ authenticated, setAuthenticated }) => {
   return (
     <>
       <div className="button-container">
+        <NavLink to="/ShoppingCart">
+          <AccountBoxIcon fontSize="large" />
+        </NavLink>
         <button
           onClick={() => setShowMenu(showMenu === true ? false : true)}
           id="dropdown_button"

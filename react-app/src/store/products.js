@@ -1,9 +1,9 @@
-const SET_ONE_PRODUCT = "products/setOneProduct";
+const SET_PRODUCT = "products/setOneProduct";
 const SET_ONE_REVIEW = "products/setOneReview";
 
-const setOneProduct = (product) => {
+const setProduct = (product) => {
   return {
-    type: SET_ONE_PRODUCT,
+    type: SET_PRODUCT,
     payload: product,
   };
 };
@@ -14,10 +14,16 @@ const setOneReview = (review) => {
   };
 };
 
+export const getAllProduct = () => async (dispatch) => {
+  let products = await fetch(`/api/products/`);
+  products = await products.json();
+  dispatch(setProduct(products));
+};
+
 export const getOneProduct = (id) => async (dispatch) => {
   let product = await fetch(`/api/products/${id}`);
   product = await product.json();
-  dispatch(setOneProduct(product));
+  dispatch(setProduct(product));
   return product;
 };
 export const makeReview = ({ id, review, rating }) => async (dispatch) => {
@@ -43,7 +49,7 @@ const initialState = [];
 const productsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case SET_ONE_PRODUCT:
+    case SET_PRODUCT:
       newState = action.payload;
       return newState;
     case SET_ONE_REVIEW:

@@ -12,6 +12,7 @@ import IndividualProduct from "./components/IndividualProduct";
 import { useDispatch } from "react-redux";
 import { addUser } from "./store/session";
 import ProductPage from "./components/ProductPage";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -74,6 +75,9 @@ function App() {
         </Route>
         <Route path="/tags/:id" exact={true}>
           <ProductPage />
+        </Route>
+        <Route path="/ShoppingCart" exact={true}>
+          <ShoppingCart />
         </Route>
       </Switch>
     </BrowserRouter>

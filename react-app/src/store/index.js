@@ -5,6 +5,7 @@ import productsReducer from "./products";
 import searchReducer from "./search";
 import userProductsReducer from "./userProducts";
 import tagsReducer from "./tags";
+import checkoutReducer from "./shoppingCart";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   search: searchReducer,
   userProducts: userProductsReducer,
   tags: tagsReducer,
+  checkout: checkoutReducer,
 });
 
 let enhancer;

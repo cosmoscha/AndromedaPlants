@@ -86,6 +86,10 @@ const IndividualProduct = () => {
     e.preventDefault();
     console.log("adding to sessionStore");
     sessionStorage.setItem(`productId ${productId}`, JSON.stringify(productId));
+    console.log(
+      "whats in the session store right now",
+      Object.values(sessionStorage)
+    );
   };
 
   const ratings = [1, 2, 3, 4, 5];

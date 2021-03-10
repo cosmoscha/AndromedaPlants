@@ -45,3 +45,10 @@ def makeReview(id):
         db.session.commit()
         return UserProduct.to_dict_product(review)
     return "Bad Data"
+
+@product_routes.route('/checkout', methods=['POST'])
+def checkout():
+    print("the response object", request.json)
+    req = request.json['getItems']
+    print("getItems obj", req)
+    return "Bad Data"
