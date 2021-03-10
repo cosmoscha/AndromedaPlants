@@ -10,6 +10,7 @@
   color: rgb(216, 207, 207);
   padding: 0px 0px 0px 0px;
   position: fixed;
+  z-index: 1;
 }
 
 .menuButtons {

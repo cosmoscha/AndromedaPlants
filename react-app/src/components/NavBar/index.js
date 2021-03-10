@@ -4,7 +4,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import "./NavBar.css";
 import ProfileButton from "./ProfileButton";
 
-const NavBar = ({ setAuthenticated }) => {
+const NavBar = ({ authenticated, setAuthenticated }) => {
   // const history = useHistory();
   // const dispatch = useDispatch();
 
@@ -32,7 +32,10 @@ const NavBar = ({ setAuthenticated }) => {
         </div>
         <div className="nav-group">
           <div className="buttonWrapper">
-            <ProfileButton setAuthenticated={setAuthenticated} />
+            <ProfileButton
+              authenticated={authenticated}
+              setAuthenticated={setAuthenticated}
+            />
           </div>
         </div>
       </div>

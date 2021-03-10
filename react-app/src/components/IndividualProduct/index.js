@@ -82,6 +82,12 @@ const IndividualProduct = () => {
     dispatch(makeReview(formValues));
   };
 
+  const addProduct = (e) => {
+    e.preventDefault();
+    console.log("adding to sessionStore");
+    sessionStorage.setItem(`productId ${productId}`, JSON.stringify(productId));
+  };
+
   const ratings = [1, 2, 3, 4, 5];
 
   return (
@@ -95,26 +101,31 @@ const IndividualProduct = () => {
             <div>{productInfo.description}</div>
             <div className="reviews-grid">{reviewsArrMapper(reviewsArr)}</div>
             <div>
-              <button>idk yet, shopping cart probably</button>
+              <button onClick={addProduct}>
+                idk yet, shopping cart probably
+              </button>
             </div>
+            <form onSubmit={submitReview}>
+              <input
+                onChange={(e) => setReview(e.target.value)}
+                value={review}
+                placeholder="add your review"
+              ></input>
+              <select
+                onChange={(e) => setRating(e.target.value)}
+                value={rating}
+              >
+                {ratings.map((rating) => (
+                  <option value={rating} key={rating}>
+                    {rating}
+                  </option>
+                ))}
+              </select>
+              <button id={review.id} type="submit">
+                submit review
+              </button>
+            </form>
           </div>
-          <form onSubmit={submitReview}>
-            <input
-              onChange={(e) => setReview(e.target.value)}
-              value={review}
-              placeholder="add your review"
-            ></input>
-            <select onChange={(e) => setRating(e.target.value)} value={rating}>
-              {ratings.map((rating) => (
-                <option value={rating} key={rating}>
-                  {rating}
-                </option>
-              ))}
-            </select>
-            <button id={review.id} type="submit">
-              submit review
-            </button>
-          </form>
         </div>
       )}
     </>
