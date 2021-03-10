@@ -12,8 +12,7 @@ const ShoppingCart = () => {
     // dispatch(getAllProduct);
     dispatch(buyProducts(getItems));
   }, []);
-  const allProducts = useSelector((state) => state.products);
-  console.log(allProducts);
+  // const allProducts = useSelector((state) => state.products);
 
   const cartMapper = () => {
     dispatch(buyProducts);

@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from app.models import Product, db, Photo, UserProduct
 from flask_login import current_user
 from app.forms import ReviewForm
+# from sqlalchemy import in_
 product_routes = Blueprint('products', __name__)
 
 @product_routes.route('/')
@@ -50,5 +51,11 @@ def makeReview(id):
 def checkout():
     print("the response object", request.json)
     req = request.json['getItems']
+    req = [int(i) for i in req]
     print("getItems obj", req)
-    return "Bad Data"
+    products = Product.query.filter(Product.id.in_(req)).all()
+    # products = Product.query.all()
+    print("all products", {"products": [product.to_dict() for product in products]})
+    # n = products.filter(lambda product : product.id in req, req)
+    # print("qweqweqweqwe", n)
+    return {"products": [product.to_dict() for product in products]}
