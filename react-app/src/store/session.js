@@ -21,6 +21,7 @@ export const addUser = (user) => async (dispatch) => {
 
 export const logoutUser = () => async (dispatch) => {
   dispatch(removeUser());
+  sessionStorage.clear();
   return "Logged out";
 };
 

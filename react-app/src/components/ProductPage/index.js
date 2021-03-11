@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import { getProductTag } from "../../store/tags";
 import "./ProductPage.css";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.tags.products);
+  const user = useSelector((state) => state.session.user);
+  const loaded = useSelector((state) => state.session.loaded);
   console.log("qweqweqweqwe", products);
   const tagId = parseInt(useParams().id);
 
@@ -38,7 +40,7 @@ const ProductPage = () => {
 
   console.log("ssssssssssssswwwwsssss", productMapper(products));
 
-  return (
+  return loaded && user ? (
     <>
       {products && (
         <div className="image-grid-container">
@@ -49,6 +51,8 @@ const ProductPage = () => {
         </div>
       )}
     </>
-  );
+  ) : loaded ? (
+    <Redirect to="/login" />
+  ) : null;
 };
 export default ProductPage;
