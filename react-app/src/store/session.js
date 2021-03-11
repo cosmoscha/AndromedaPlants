@@ -24,7 +24,7 @@ export const logoutUser = () => async (dispatch) => {
   return "Logged out";
 };
 
-const initialState = { user: null };
+const initialState = { user: null, loaded: false };
 
 const sessionReducer = (state = initialState, action) => {
   let newState;
@@ -32,10 +32,12 @@ const sessionReducer = (state = initialState, action) => {
     case SET_USER:
       newState = Object.assign({}, state);
       newState.user = action.payload;
+      newState.loaded = true;
       return newState;
     case REMOVE_USER:
       newState = Object.assign({}, state);
       newState.user = null;
+      newState.loaded = true;
       return newState;
     default:
       return state;

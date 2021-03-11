@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 import { logout } from "../../services/auth";
 import { logoutUser } from "../../store/session";
 
@@ -11,7 +12,11 @@ const LogoutButton = ({ setAuthenticated }) => {
     dispatch(logoutUser());
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return (
+    <>
+      <button onClick={onLogout}>Logout</button>
+    </>
+  );
 };
 
 export default LogoutButton;

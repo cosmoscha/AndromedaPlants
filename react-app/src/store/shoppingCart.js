@@ -20,7 +20,7 @@ export const buyProducts = (getItems) => async (dispatch) => {
   });
   boughtProducts = await boughtProducts.json();
   console.log("bought products", boughtProducts);
-  // dispatch(boughtProducts);
+  dispatch(checkout(boughtProducts));
   return boughtProducts;
 };
 

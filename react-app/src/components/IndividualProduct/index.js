@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct, makeReview } from "../../store/products";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import "./IndividualProduct.css";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -14,6 +14,8 @@ const IndividualProduct = () => {
   const product = useParams();
   const productInfo = useSelector((state) => state.products);
   const userProducts = useSelector((state) => state.userProducts);
+  const user = useSelector((state) => state.session.user);
+  const loaded = useSelector((state) => state.session.loaded);
   const photos = productInfo.photos;
   const productId = parseInt(product.id);
   const [review, setReview] = useState("");
@@ -75,7 +77,7 @@ const IndividualProduct = () => {
   // };
 
   const submitReview = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log("sent dispatch");
     const formValues = { id: productId, review: review, rating: rating };
     console.log(formValues);
@@ -83,9 +85,10 @@ const IndividualProduct = () => {
   };
 
   const addProduct = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    const val = { userId: user.id, productId: productId };
     console.log("adding to sessionStore");
-    sessionStorage.setItem(`productId ${productId}`, JSON.stringify(productId));
+    sessionStorage.setItem(`productId ${productId}`, JSON.stringify(val));
     console.log(
       "whats in the session store right now",
       Object.values(sessionStorage)
@@ -94,7 +97,7 @@ const IndividualProduct = () => {
 
   const ratings = [1, 2, 3, 4, 5];
 
-  return (
+  return loaded && user ? (
     <>
       {userProducts && productInfo && (
         <div className="page-container">
@@ -133,7 +136,9 @@ const IndividualProduct = () => {
         </div>
       )}
     </>
-  );
+  ) : loaded ? (
+    <Redirect to="/login" />
+  ) : null;
 };
 
 export default IndividualProduct;
