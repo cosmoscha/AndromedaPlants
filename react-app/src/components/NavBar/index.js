@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import "./NavBar.css";
 import ProfileButton from "./ProfileButton";
+import PlantMenu from "../../components/HomePage/PlantMenu";
 
 const NavBar = ({ authenticated, setAuthenticated }) => {
   // const history = useHistory();
@@ -37,6 +38,9 @@ const NavBar = ({ authenticated, setAuthenticated }) => {
             />
           </div>
         </div>
+      </div>
+      <div className="test">
+        <PlantMenu />
       </div>
     </nav>
   );

@@ -15,9 +15,16 @@ const ProfileButton = ({ authenticated, setAuthenticated }) => {
   const profileButtons = (
     <>
       {authenticated && (
-        <div>
-          <LogoutButton setAuthenticated={setAuthenticated} />
-        </div>
+        <>
+          <div>
+            <LogoutButton setAuthenticated={setAuthenticated} />
+          </div>
+          <div>
+            <NavLink to="/users" exact={true} activeClassName="active">
+              Users
+            </NavLink>
+          </div>
+        </>
       )}
       {!authenticated && (
         <>
@@ -29,11 +36,6 @@ const ProfileButton = ({ authenticated, setAuthenticated }) => {
           <div>
             <NavLink to="/sign-up" exact={true} activeClassName="active">
               Sign Up
-            </NavLink>
-          </div>
-          <div>
-            <NavLink to="/users" exact={true} activeClassName="active">
-              Users
             </NavLink>
           </div>
         </>

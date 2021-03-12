@@ -39,7 +39,7 @@ const ShoppingCart = () => {
   console.log("qqqqqqqqqqqqqqqqqq", checkoutMapper(checkout));
   return loaded && user ? (
     <>
-      <div className="page-container">
+      <div className="pages-container">
         <div>{checkoutMapper(checkout)}</div>
         <div> hullo world</div>
       </div>

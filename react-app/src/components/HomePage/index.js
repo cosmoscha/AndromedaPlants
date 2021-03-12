@@ -15,11 +15,7 @@ const HomePage = () => {
   };
   return (
     <>
-      <div className="splash-container">
-        <div className="sidebar">
-          <PlantMenu />
-        </div>
-      </div>
+      <div className="splash-container"></div>
       <div className="product-preview-container">
         <div className="product-preview">
           <div className="sample1">product sample</div>
