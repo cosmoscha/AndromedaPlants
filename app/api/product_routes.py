@@ -52,13 +52,9 @@ def makeReview(id):
 def checkout():
     print("the response obssssssssssssssssssssssssssssject", request.json)
     req = request.json['getItems']
-    # req = [int(i) for i in req]
     print("getItems obj", json.loads(req[0]))
     lst = [json.loads(i)['productId'] for i in req]
     print("qwhekjqwhekjqwhekjqw",lst)
     products = Product.query.filter(Product.id.in_(lst)).all()
-    # products = Product.query.all()
     print("all products", {"products": [product.to_dict() for product in products]})
-    # n = products.filter(lambda product : product.id in req, req)
-    # print("qweqweqweqwe", n)
     return {"products": [product.to_dict() for product in products]}

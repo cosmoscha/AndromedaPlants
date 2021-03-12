@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, Redirect } from "react-router-dom";
-import { getAllProduct } from "../../store/products";
+import { Redirect } from "react-router-dom";
 import { buyProducts } from "../../store/shoppingCart";
 import "./cart.css";
 const ShoppingCart = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneProduct, makeReview } from "../../store/products";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams, Redirect, useHistory } from "react-router-dom";
 import "./IndividualProduct.css";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -12,7 +12,9 @@ import userProductsReducer, {
 const IndividualProduct = () => {
   const dispatch = useDispatch();
   const product = useParams();
+  const history = useHistory();
   const productInfo = useSelector((state) => state.products);
+  const quantity = useSelector((state) => state.products.quantity);
   const userProducts = useSelector((state) => state.userProducts);
   const user = useSelector((state) => state.session.user);
   const loaded = useSelector((state) => state.session.loaded);
@@ -20,11 +22,19 @@ const IndividualProduct = () => {
   const productId = parseInt(product.id);
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(1);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     dispatch(getReviewsRatings(productId));
     dispatch(getOneProduct(productId));
   }, [dispatch]);
+
+  useEffect(() => {
+    if (quantity) {
+      setCount(quantity);
+    }
+  }, [setCount, quantity]);
+  console.log("counttttttttttttttt", count);
 
   const reviewsArr = [];
   const photosArr = [];
@@ -69,13 +79,6 @@ const IndividualProduct = () => {
     return <AliceCarousel mouseTracking items={arr} />;
   };
 
-  // const updateReview = (e) => {
-  //   setReview(e.target.value);
-  // };
-  // const updateRating = (e) => {
-  //   setRating(e.target.value);
-  // };
-
   const submitReview = (e) => {
     // e.preventDefault();
     console.log("sent dispatch");
@@ -86,16 +89,23 @@ const IndividualProduct = () => {
 
   const addProduct = (e) => {
     // e.preventDefault();
-    const val = { userId: user.id, productId: productId };
+    const val = { userId: user.id, productId: productId, quantity: count };
     console.log("adding to sessionStore");
     sessionStorage.setItem(`productId ${productId}`, JSON.stringify(val));
     console.log(
       "whats in the session store right now",
       Object.values(sessionStorage)
     );
+    history.push("/shoppingCart");
   };
 
   const ratings = [1, 2, 3, 4, 5];
+  const quantityDecreaser = () => {
+    if (count === 0) {
+      return;
+    }
+    setCount(count - 1);
+  };
 
   return loaded && user ? (
     <>
@@ -104,7 +114,11 @@ const IndividualProduct = () => {
           <div className="imageContainer">
             <div>{productInfo.name}</div>
             <div className="image-grid">{photoArrMapper(photosArr)}</div>
-            <div className="image-grid"></div>
+            <div>
+              <div>{count}</div>
+              <button>ssssss</button>
+              <button></button>
+            </div>
             <div>{productInfo.description}</div>
             <div className="reviews-grid">{reviewsArrMapper(reviewsArr)}</div>
             <div>
